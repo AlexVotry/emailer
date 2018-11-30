@@ -18,3 +18,7 @@ heroku.com:
 react-emailer > settings > Config Vars
 
 use keys from prod.js  : info from google and mongo.
+
+fix the http proxy problem:
+
+add 'proxy: true' to GoogleStrategy
