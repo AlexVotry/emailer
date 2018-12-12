@@ -1,3 +1,5 @@
+react-build
+
 npm install --save redux react-redux react-router-dom
 
 redux holds all the data or state inside the application.
