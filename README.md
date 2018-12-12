@@ -1,3 +1,5 @@
+https://react-emailer.herokuapp.com/
+
 to open up a mongo db instance:
 https://mlab.com
 
@@ -64,3 +66,8 @@ module.exports = function(app) {
 add redirect uri to https://console.developers.google.com/apis/credentials in "credentials" under "authorized redirect URIs"
 
 https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lecture/12072146?start=0
+
+
+https://www.npmjs.com/package/stripe
+https://stripe.com/docs/api/charges/create?lang=node
+npm install --save
