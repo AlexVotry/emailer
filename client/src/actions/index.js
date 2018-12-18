@@ -2,6 +2,7 @@ import axios from 'axios';
 import { FETCH_USER } from './types';
 
 // get user information
+//redux-thunk sees this returning a function instead of an action, and delays dispatching the action until promise is resolved.
 export const fetchUser = () => async dispatch => {
     const res = await axios.get('/api/current_user');
 
@@ -16,7 +17,6 @@ export const handleToken = token => async dispatch => {
 }
 
 // same as:
-  //redux-thunk sees this returning a function instead of an action, and delays dispatching the action until promise is resolved.
 // export const fetchUser = () => {
 //   return function(dispatch) {
 //     axios.get('/api/current_user')
