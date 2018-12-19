@@ -10,7 +10,7 @@ module.exports = app => {
   app.post('/api/surveys', requireLogin, requireCredits, (req, res) => {
     const { title, subject, body, recipients } = req.body;
 
-    // new syntax of title: title,  is now just title,
+    // new syntax of title: title, is now just title,
     const survey = new Survey({
       title,
       subject,
@@ -19,9 +19,8 @@ module.exports = app => {
       _user: req.user.id,
       dateSent: Date.now()
     })
-  });
 
-  // TODO: Great place to send an email
-  const mailer = new Mailer(survey, surveyTemplate(survey));
-  
+    const mailer = new Mailer(survey, surveyTemplate(survey));
+    mailer.send();
+  });
 }
