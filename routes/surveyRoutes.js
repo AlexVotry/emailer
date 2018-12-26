@@ -9,7 +9,6 @@ const Survey = mongoose.model('surveys');
 module.exports = app => {
   // app.get not working.
   app.get('/api/surveys/thanks', (req, res) => {
-    console.log('thanks~~!!!!');
     res.send('Thanks for voting!');
   });
 
