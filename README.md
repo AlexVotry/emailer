@@ -71,3 +71,7 @@ https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/t/lectu
 https://www.npmjs.com/package/stripe
 https://stripe.com/docs/api/charges/create?lang=node
 npm install --save
+
+
+set up SendGrid.com for mailer service
+npm install --save sendGrid
