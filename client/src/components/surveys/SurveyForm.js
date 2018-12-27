@@ -50,7 +50,9 @@ function validate(values) {
   return errors;
 }
 
+// destroyOnUnmount determines if values in form persist
 export default reduxForm({
   validate,
-  form: 'surveyForm'
+  form: 'surveyForm',
+  destroyOnUnmount: false
 })(SurveyForm);
