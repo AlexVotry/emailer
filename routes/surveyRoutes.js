@@ -11,30 +11,39 @@ const Survey = mongoose.model('surveys');
 
 module.exports = app => {
   // app.get not working.
-  app.get('/api/surveys/:id/yes', (req, res) => {
-    res.send('Thanks for voting!');
-  });
-
-  app.get('/api/surveys/:id/no', (req, res) => {
+  app.get('/api/surveys/:surveyId/:choice', (req, res) => {
     res.send('Thanks for voting!');
   });
 
   app.post('/api/surveys/webhooks', (req, res) => {
+
     const p = new Path('/api/surveys/:surveyId/:choice');
 
     const events = _.chain(req.body)
       .map(({ url, email }) => {
         const match = p.test(new URL(url).pathname);
-        if (match) {
+
+        if(match){
           return { email, surveyId: match.surveyId, choice: match.choice };
         }
       })
       .compact()
       .uniqBy('email', 'surveyId')
+      .each(({ surveyId, email, choice }) => {
+        Survey.updateOne({
+          _id: surveyId,
+          recipients: {
+            $elemMatch: { email: email, responded: false }
+          }
+        }, {
+          $inc: { [choice]: 1 },
+          $set: { 'recipients.$.responded': true },
+          lastResponded: new Date()
+        }).exec();
+      })
       .value();
 
     console.log('events: ', events);
-
     res.send({});
   });
 
