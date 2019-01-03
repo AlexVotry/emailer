@@ -9,6 +9,7 @@ This is an app that uses:
   SendGrid as an email service.
   Stripe as the payment service.
   Passport as the auth service.
+  localtunnel.com for localhost webhook.
 
 
 First log in with google.

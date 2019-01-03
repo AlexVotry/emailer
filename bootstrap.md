@@ -75,3 +75,5 @@ npm install --save
 
 set up SendGrid.com for mailer service
 npm install --save sendGrid
+
+to test sendGrid use Localtunnel.com.
