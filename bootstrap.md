@@ -77,3 +77,13 @@ set up SendGrid.com for mailer service
 npm install --save sendGrid
 
 to test sendGrid use Localtunnel.com.
+
+go to sendGrid dashboard.
+click on settings on left sidebar.
+click on Mail Settings,
+click on Event Notifications.
+switch configuration to "on"
+enter the http post url:
+  https://alexvotry.localtunnel.me/api/surveys/webhooks
+then test integration (after you add webhook route)  
+ then click in check box below for events you want (in this app it is click), then click the check at the right of "configuration" title.
