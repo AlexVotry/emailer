@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { FETCH_USER } from './types';
+import { FETCH_USER, FETCH_SURVEYS } from './types';
 
 // get user information
 //redux-thunk sees this returning a function instead of an action, and delays dispatching the action until promise is resolved.
@@ -31,3 +31,9 @@ export const submitSurvey = (values, history) => async dispatch => {
 //     .then(res => dispatch({ type: FETCH_USER, payload: res }));
 //   }
 // };
+
+export const fetchSurveys = () => async dispatch => {
+  const res = await axios.get('/api/surveys');
+
+  dispatch({ type: FETCH_SURVEYS, payload: res.data });
+};

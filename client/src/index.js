@@ -9,16 +9,17 @@ import App from './components/App';
 import reducers from './reducers';
 
 // temporary to test emailer
-// import axios from 'axios';
-// window.axios = axios;
-// in browser console:
-// const survey = { title: 'my title', subject: 'my subject', recipients: 'alexvotry@gmail.com, me@alexvotry.info', body: 'the body of html' };
-//axios.post('/api/surveys', survey);
+  // import axios from 'axios';
+  // window.axios = axios;
+  // in browser console:
+  // const survey = { title: 'my title', subject: 'my subject', recipients: 'alexvotry@gmail.com, me@alexvotry.info', body: 'the body of html' };
+  //axios.post('/api/surveys', survey);
+  // or axios.get('/api/surveys');
 
 const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
 ReactDOM.render(
   // this Provider updates the App component with new state of store
-  <Provider store={store}><App /></Provider>, document.querySelector('#root')
+  <Provider store={store}><App/></Provider>, document.querySelector('#root')
 
 );
